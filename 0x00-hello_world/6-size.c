@@ -3,8 +3,7 @@
  * main - Entry point
  * printf - Prints formated text to standard output.
  * 
- * Purpose:
- * The purpose of this script is to show the different byte sizes of the various datatypes in C
+ * Purpose: To show the byte sizes of the various datatypes in C
  *
  * Return: Always 0 (Success)
  */
