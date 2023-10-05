@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  * printf - Prints formated text to standard output.
- * 
+ *
  * Purpose: To show the byte sizes of the various datatypes in C
  *
  * Return: Always 0 (Success)
