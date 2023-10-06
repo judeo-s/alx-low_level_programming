@@ -1,13 +1,15 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+/**
+ * main - Entry Point
+ *
+ * Description: prints the value of n and checking if it\
+ * zero, positive or negative
+ *
+ * Return: Always 0 (Success)
+*/
 
-
-/*
- * main: The starting point of the program
- * srand: Uses the current instance in time as the seeding value for rand
- * rand: It produces random integers.
- */
 int main(void)
 {
 	int n;
@@ -17,15 +19,15 @@ int main(void)
 
 	if (n > 0)
 	{
-		printf("%d is positive", n);
+		printf("%d is positive\n", n);
 	}
 	else if (n < 0)
 	{
-		printf("%d is negative", n);
+		printf("%d is negative\n", n);
 	}
 	else
 	{
-		printf("%d is zero", n);
+		printf("%d is zero\n", n);
 	}
 
 	return (0);
