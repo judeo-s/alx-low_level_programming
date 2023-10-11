@@ -14,8 +14,8 @@ int main(void)
 	{
 
 		nextTerm = t1 + t2;
-		
-		if (nextTerm % 2 ==0)
+
+		if (nextTerm % 2 == 0)
 		{
 			sum += nextTerm;
 		}
