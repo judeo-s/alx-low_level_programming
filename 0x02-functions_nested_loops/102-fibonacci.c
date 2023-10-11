@@ -8,10 +8,10 @@
  */
 int main(void)
 {
-	unsigned long long t1 = 1, t2 = 2, nextTerm = 0;
+	unsigned long t1 = 1, t2 = 2, nextTerm = 0;
 	int i;
 
-	printf("%llu, %llu, ", t1, t2);
+	printf("%lu, %lu, ", t1, t2);
 
 	for (i = 3; i <= 50; ++i)
 	{
@@ -22,11 +22,11 @@ int main(void)
 
 		if (i != 50)
 		{
-			printf("%llu, ", nextTerm);
+			printf("%lu, ", nextTerm);
 		}
 		else
 		{
-			printf("%llu\n", nextTerm);
+			printf("%lu\n", nextTerm);
 		}
 	}
 	return (0);
