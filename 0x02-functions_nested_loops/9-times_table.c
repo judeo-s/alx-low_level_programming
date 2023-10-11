@@ -11,6 +11,7 @@ void times_table(void)
 {
 	int n = 0;
 	int n_times;
+
 	while (n <= 9)
 	{
 		_putchar('0');
