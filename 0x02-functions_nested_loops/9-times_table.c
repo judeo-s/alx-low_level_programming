@@ -10,14 +10,14 @@ void print_digits(int);
 void times_table(void)
 {
 	int n = 0;
-
+	int n_times;
 	while (n <= 9)
 	{
 		_putchar('0');
 		_putchar(',');
 		_putchar(' ');
 
-		int n_times = 1;
+		n_times = 1;
 
 		while (n_times <= 9)
 		{
