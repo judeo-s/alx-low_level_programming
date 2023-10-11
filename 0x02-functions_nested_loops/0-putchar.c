@@ -11,7 +11,7 @@ int main(void)
 	char string[] = "_putchar\n";
 	int index;
 
-	for (index = 0; index < sizeof(string); index++)
+	for (index = 0; index < (int)sizeof(string); index++)
 	{
 		_putchar(string[index]);
 	}
