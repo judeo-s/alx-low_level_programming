@@ -2,7 +2,7 @@
 
 /**
  * print_line - Prints lines on the the screen
- * 
+ *
  * @n: integer input
  * Return: None
  */
