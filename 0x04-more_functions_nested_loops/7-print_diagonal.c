@@ -20,10 +20,12 @@ void print_diagonal(int n)
 			{
 				if (index == lines)
 				{
-					_putchar('\\');
+					_putchar(92);
 				}
-
-			_putchar(' ');
+				else
+				{
+					_putchar(' ');
+				}
 			}
 			_putchar('\n');
 		}
