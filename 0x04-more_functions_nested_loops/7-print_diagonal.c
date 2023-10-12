@@ -10,7 +10,7 @@ void print_diagonal(int n)
 {
 	int lines;
 
-	if (n > 0)
+	if (n >= 0)
 	{
 		int index;
 
