@@ -10,10 +10,11 @@ void print_digits(int);
 void more_numbers(void)
 {
 	int counter = 0;
+	int i;
 
 	while (counter < 10)
 	{
-		for (int i = 0; i <= 14; i++)
+		for (i = 0; i <= 14; i++)
 		{
 			print_digits(i);
 		}
