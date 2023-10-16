@@ -39,7 +39,7 @@ void puts_half(char *str)
 		counter = (size - 1) / 2;
 	}
 
-	while (counter <= size)
+	while (counter < size)
 	{
 		_putchar(str[counter]);
 		counter++;
