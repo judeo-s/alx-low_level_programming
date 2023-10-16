@@ -36,7 +36,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		counter = (size - 1) / 2;
+		counter = ((size - 1) / 2) + 1;
 	}
 
 	while (counter < size)
