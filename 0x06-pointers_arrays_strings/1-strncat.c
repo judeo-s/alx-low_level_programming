@@ -19,26 +19,37 @@ int _strlen(char *s)
 }
 
 /**
- *_strcat - a function to concatinate to strings
+ *_strncat - a function to concatinate a strings to n-size of another string
  *
  * @dest: char pointer
  * @src: char pointer
+ * @n: int
  * Return: char pointer
  */
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
 	int dest_len = _strlen(dest);
 	int src_len = _strlen(src);
-	int total_len = dest_len + src_len;
 
+	static char temp[1000];
 	int counter = 0;
 	int i;
 
-	for (i = dest_len; i < total_len; i++)
+	for (i = 0; i < dest_len; i++)
 	{
-		dest[i] = src[counter];
+		temp[counter] = dest[i];
 		counter++;
 	}
 
-	return (dest);
+	if (n < src_len)
+		src_len = n;
+
+	for (i = 0; i < src_len; i++)
+	{
+		temp[counter] = src[i];
+		dest[counter] = src[i];
+		counter++;
+	}
+	temp[counter] = '\0';
+	return (temp);
 }
