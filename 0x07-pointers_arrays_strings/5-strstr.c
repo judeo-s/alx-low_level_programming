@@ -28,7 +28,7 @@ int _strlen(char *s)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int needle_len = _strlen(needle);
+	int needle_len = _strlen(needle) - 1;
 	int y, flag;
 
 	while (*haystack != '\0')
@@ -36,9 +36,9 @@ char *_strstr(char *haystack, char *needle)
 		if (*haystack == *needle)
 		{
 			flag = 0;
-			for (y = 0; y < needle_len - 1; y++)
+			for (y = 0; y < needle_len; y++)
 			{
-				if (haystack[y] == needle[y])
+				if (haystack[y] == needle[y] && needle[y] != '\0')
 				{
 					flag = 1;
 				}
