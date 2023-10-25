@@ -7,12 +7,12 @@
  * @num: int
  * Return: int
  */
-int find_sqrt(int low, int high, int num)
+long find_sqrt(long low, long high, long num)
 {
-	int mid = (low + high) / 2;
-	int sqr = mid * mid;
+	long mid = (low + high) / 2;
+	long sqr = mid * mid;
 
-	if (sqr - num == 0)
+	if (sqr - (long int)num == 0)
 	{
 		return (mid);
 	}
@@ -38,7 +38,7 @@ int find_sqrt(int low, int high, int num)
  * @n: int
  * Return: int
  */
-int _sqrt_recursion(int n)
+int _sqrt_recursion(long n)
 {
 	if (n < 0)
 	{
