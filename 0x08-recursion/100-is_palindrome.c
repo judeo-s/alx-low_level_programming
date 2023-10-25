@@ -1,20 +1,24 @@
 #include "main.h"
+
 /**
- * _strlen - a function that returns the size of a string
+ *_strlen_recursion - a function that gets a length of a string.
  *
- * @s: Pointer to an char variable
- * Return: int
+ * @s: char *
+ * Return: void
  */
-int _strlen(char *s)
+int _strlen_recursion(char *s)
 {
-	int i;
+	int len;
 
-	for (i = 0; s[i] != '\0'; ++i)
+	if (*s == '\0')
 	{
-		continue;
+		return (0);
 	}
-
-	return (i);
+	else
+	{
+		len = 1 + _strlen_recursion(s + 1);
+		return (len);
+	}
 }
 
 
@@ -52,7 +56,7 @@ int palindrome_check(int next, int back, char *string)
  */
 int is_palindrome(char *s)
 {
-	int len = _strlen(s) - 1;
+	int len = _strlen_recursion(s) - 1;
 
 	return (palindrome_check(0, len, s));
 }
