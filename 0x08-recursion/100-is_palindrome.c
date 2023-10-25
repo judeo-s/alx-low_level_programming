@@ -21,18 +21,18 @@ int _strlen(char *s)
 /**
  * palindrome_check - a function that cross-checks each letter of the string
  *
- * @forward: int
- * @reverse: int
+ * @next: int
+ * @back: int
  * @string: char *
  * Return: int
  */
-int palindrome_check(int forward, int reverse, char *string)
+int palindrome_check(int next, int back, char *string)
 {
-	if (string[forward] != '\0' && reverse >= 0)
+	if (string[next] != '\0' && back >= 0)
 	{
-		if (string[forward] == string[reverse])
+		if (string[next] == string[back])
 		{
-			return (palindrome_check(forward + 1, reverse - 1, string));
+			return (palindrome_check(next + 1, back - 1, string));
 		}
 		else
 		{
