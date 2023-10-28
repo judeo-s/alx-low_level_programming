@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	argc--;
 	while (argc > 0)
 	{
-		if (atoi(argv[argc]))
+		if (atoi(argv[argc]) || strcmp("0", argv[argc]) == 0)
 		{
 			sum += atoi(argv[argc]);
 			argc--;
