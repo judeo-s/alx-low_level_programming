@@ -23,10 +23,10 @@ int main(int argc, char **argv)
 			number = argv[i];
 			while (*number != '\0')
 			{
-				if(isdigit(*number))
+				if (isdigit(*number))
 				{
 					number++;
-					continue;	
+					continue;
 				}
 				else
 				{
