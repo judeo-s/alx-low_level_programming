@@ -15,26 +15,18 @@ int main(int argc, char **argv)
 	int sum = 0;
 
 	argc--;
-	if (argc > 1)
+	while (argc > 0)
 	{
-		while (argc > 0)
+		if (atoi(argv[argc]))
 		{
-			if (atoi(argv[argc]))
-			{
-				sum += atoi(argv[argc]);
-				argc--;
-			}
-			else
-			{
-				printf("Error\n");
-				return (1);
-			}
+			sum += atoi(argv[argc]);
+			argc--;
 		}
-	}
-	else
-	{
-		printf("Error\n");
-		return (1);
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
 	}
 	printf("%d\n", sum);
 	return (0);
