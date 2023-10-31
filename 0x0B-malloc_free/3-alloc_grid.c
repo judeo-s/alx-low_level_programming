@@ -42,7 +42,7 @@ int **alloc_grid(int width, int height)
 	}
 	else
 	{
-		multi_array = (int **)malloc(sizeof(int) * height);
+		multi_array = (int **)malloc(sizeof(int *) * height);
 		if (multi_array == NULL)
 		{
 			return (NULL);
