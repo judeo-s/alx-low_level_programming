@@ -43,14 +43,23 @@ int **alloc_grid(int width, int height)
 	else
 	{
 		multi_array = (int **)malloc(sizeof(int) * height);
+		if (multi_array == NULL)
+		{
+			return (NULL);
+		}
 		for (x = 0; x < height; x++)
 		{
 			multi_array[x] = (int *)malloc(sizeof(int) * width);
+			if (multi_array[x] == NULL)
+			{
+				for (; x >= 0; x--)
+				{
+					free(multi_array[x]);
+				}
+				free(multi_array);
+			}
 		}
 		init_0(multi_array, height, width);
 	}
 	return (multi_array);
 }
-
-
-
