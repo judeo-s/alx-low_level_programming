@@ -50,7 +50,7 @@ char *str_concat(char *s1, char *s2)
 		string2 = "";
 	}
 
-	size1 = _strlen(s1) + 1;
+	size1 = _strlen(s1);
 	size2 = _strlen(s2) + 1;
 	x = 0;
 
