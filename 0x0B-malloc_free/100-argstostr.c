@@ -42,14 +42,14 @@ char *argstostr(int ac, char **av)
 	{
 		return (NULL);
 	}
-	for (num = 1; num <= ac; num++)
+	for (num = 0; num <= ac; num++)
 	{
 		size += _strlen(av[num]) + 1;
 	}
 
-	concat = malloc(sizeof(char) * size);
+	concat = malloc(sizeof(char) * size + 1);
 
-	for (num = 1; num < ac; num++)
+	for (num = 0; num < ac; num++)
 	{
 		while (*av[num] != '\0')
 		{
