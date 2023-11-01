@@ -10,8 +10,10 @@
  * @argv: char **
  * Return: int
  */
-int main(int __attribute__((unused)) argc, char **argv)
+int main(int __attribute__((unused)) argc, char *argv[])
 {
-	printf("%s\n", argv[0]);
+	int i = 0;
+
+	printf("%s\n", argv[i]);
 	return (0);
 }
