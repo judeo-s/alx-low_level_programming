@@ -1,75 +1,74 @@
+#include <stdlib.h>
 #include "dog.h"
 
 /**
- * _strlen - a function that returns the size of a string
+ * _strlen - a function that gets a length of string
  *
- * @s: Pointer to an char variable
- * Return: int
- */
-int _strlen(char *s)
+ * @str: the string to get the length
+ *
+ * Return: length of @str
+*/
+
+int _strlen(const char *str)
+{
+	int length = 0;
+
+	while (*str++)
+		length++;
+	return (length);
+}
+
+/**
+ * _strcopy - a function that returns @dest with a copy of a string from @src
+ *
+ * @src: string to copy
+ * @dest: copy string to here
+ *
+ * Return: @dest
+*/
+
+char *_strcopy(char *dest, char *src)
 {
 	int i;
 
-	for (i = 0; s[i] != '\0'; ++i)
-	{
-		continue;
-	}
+	for (i = 0; src[i]; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
 
-	return (i);
+	return (dest);
 }
 
-
 /**
- * _strcpy - a function that copies string from a source to destination
+ * new_dog - a function that creates a new dog
  *
- * @dest: Pointer to a char variable
- * @src:  Pointer to a char variable
- * Return: *char
- */
-void _strcpy(char *dest, char *src)
-{
-	int x, y;
-
-	y = 0;
-	for (x = 0; src[x] != '\0'; x++)
-	{
-		dest[x] = src[x];
-		y++;
-	}
-
-	dest[y] = '\0';
-}
-
-
-/**
- * new_dog - a function to create and initialize a dog_t struct
+ * @name: name of dog
+ * @age: age of dog
+ * @owner: dog owner
  *
- * @name: char *
- * @age: float
- * @owner: char *
- * Return: dog_t *
- */
+ * Return: struct pointer dog
+ *         NULL if function fails
+*/
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog;
 
+	/* if name and owner are empty and age is less than zero return null*/
 	if (!name || age < 0 || !owner)
-	{
 		return (NULL);
-	}
 
 	dog = (dog_t *) malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
 
-	dog->name = malloc(sizeof(char) * (_strlen(name)));
+	dog->name = malloc(sizeof(char) * (_strlen(name) + 1));
 	if ((*dog).name == NULL)
 	{
 		free(dog);
 		return (NULL);
 	}
 
-	dog->owner = malloc(sizeof(char) * (_strlen(owner)));
+	dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
 	if ((*dog).owner == NULL)
 	{
 		free(dog->name);
@@ -77,9 +76,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	_strcpy(dog->name, name);
+	dog->name = _strcopy(dog->name, name);
 	dog->age = age;
-	_strcpy(dog->owner, owner);
+	dog->owner = _strcopy(dog->owner, owner);
 
 	return (dog);
 }
