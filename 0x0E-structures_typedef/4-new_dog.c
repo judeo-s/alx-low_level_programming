@@ -26,7 +26,7 @@ int _strlen(char *s)
  * @src:  Pointer to a char variable
  * Return: *char
  */
-char *_strcpy(char *dest, char *src)
+void _strcpy(char *dest, char *src)
 {
 	int x, y;
 
@@ -38,7 +38,6 @@ char *_strcpy(char *dest, char *src)
 	}
 
 	dest[y] = '\0';
-	return (dest);
 }
 
 
@@ -58,30 +57,29 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	else
+
+	dog = (dog_t *) malloc(sizeof(dog_t));
+	if (dog == NULL)
+		return (NULL);
+
+	dog->name = malloc(sizeof(char) * (_strlen(name)));
+	if ((*dog).name == NULL)
 	{
-		dog = (dog_t *) malloc(sizeof(dog_t));
-		if (dog == NULL)
-			return (NULL);
-
-		dog->name = malloc(sizeof(char) * (_strlen(name)));
-		if ((*dog).name == NULL)
-		{
-			free(dog);
-			return (NULL);
-		}
-
-		dog->owner = malloc(sizeof(char) * (_strlen(owner)));
-		if ((*dog).owner == NULL)
-		{
-			free(dog->name);
-			free(dog);
-			return (NULL);
-		}
+		free(dog);
+		return (NULL);
 	}
-	dog->name = _strcpy(dog->name, name);
+
+	dog->owner = malloc(sizeof(char) * (_strlen(owner)));
+	if ((*dog).owner == NULL)
+	{
+		free(dog->name);
+		free(dog);
+		return (NULL);
+	}
+
+	_strcpy(dog->name, name);
 	dog->age = age;
-	dog->owner = _strcpy(dog->owner, owner);
+	_strcpy(dog->owner, owner);
 
 	return (dog);
 }
