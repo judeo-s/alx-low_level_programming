@@ -10,9 +10,11 @@
 void str_check(char *str)
 {
 	if (str)
+	{
 		printf("%s", str);
-	else
-		printf("(nil)");
+		return;
+	}
+	printf("(nil)");
 }
 
 
