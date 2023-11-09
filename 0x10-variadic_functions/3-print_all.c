@@ -11,11 +11,10 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	char *string;
-	int integer, i;
+	int integer, i = 0;
 	float decimal;
 	char letter;
 
-	i = 0;
 	va_start(args, format);
 	while (format && format[i])
 	{
@@ -23,11 +22,13 @@ void print_all(const char * const format, ...)
 		{
 			case 'c':
 				letter = (char)va_arg(args, int);
-				printf("%c", letter);
+				if (letter)
+					printf("%c", letter);
 				break;
 			case 's':
 				string = va_arg(args, char *);
-				printf("%s", string);
+				if (string)
+					printf("%s", string);
 				break;
 			case 'f':
 				decimal = (float)va_arg(args, double);
