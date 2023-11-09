@@ -5,6 +5,8 @@
 /**
  * main - this function begins the whole program
  *
+ * @argc: int
+ * @argv: char **
  * Return: int
  */
 int main(int argc, char **argv)

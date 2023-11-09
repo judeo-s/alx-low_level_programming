@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
- * get_op_func - function that selects the correct function to 
+ * get_op_func - function that selects the correct function to
  *               perform the operation asked by the user.
  *
  * @s: char
@@ -24,7 +24,7 @@ int (*get_op_func(char *s))(int, int)
 	i = 0;
 	while (i < 5)
 	{
-		if(ops[i].op[0] == s[0])
+		if (ops[i].op[0] == s[0])
 		{
 			return (ops[i].f);
 		}
