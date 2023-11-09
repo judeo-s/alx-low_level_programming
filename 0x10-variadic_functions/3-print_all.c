@@ -2,6 +2,21 @@
 #include <stdio.h>
 
 /**
+ * str_check - a function that checks if a string exists
+ *
+ * @str: char *
+ * Return: void
+ */
+void str_check(char *str)
+{
+	if (str)
+		printf("%s", str);
+	else
+		printf("(nil)");
+}
+
+
+/**
  * print_all - a function that prints anything.
  *
  * @format: const char * const
@@ -26,8 +41,7 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				string = va_arg(args, char *);
-				if (string)
-					printf("%s", string);
+				str_check(string);
 				break;
 			case 'f':
 				decimal = (float)va_arg(args, double);
