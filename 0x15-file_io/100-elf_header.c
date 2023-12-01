@@ -1,4 +1,9 @@
-#include "main.h"
+#include <stdio.h>
+#include <elf.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 static char text[1024];
 /**
