@@ -190,6 +190,7 @@ int main(int argc, char **argv)
 	char *filename;
 	int fd;
 	Elf64_Ehdr header;
+
 	if (argc < 2 || argc > 3 || (argc == 3 && strcmp(argv[1], "-h") != 0))
 	{
 		fprintf(stderr, "Usage: elf_header [-h] elf_filename\n");
