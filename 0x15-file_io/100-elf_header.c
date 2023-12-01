@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <error.h>
 
 static char text[1024];
 /**
@@ -198,7 +199,8 @@ int main(int argc, char **argv)
 	}
 
 	filename = argv[argc - 1];
-	fd = open(filename, O_RDONLY);
+	if (filename != NULL)
+		fd = open(filename, O_RDONLY);
 
 	if (fd == -1)
 	{
