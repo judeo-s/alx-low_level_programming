@@ -30,7 +30,6 @@ char *get_class(unsigned char CLASS)
 }
 
 
-
 /**
  * get_data - returns the data encoding of the ELF file
  *
@@ -154,8 +153,10 @@ char *get_type(unsigned int TYPE)
  */
 void print_elf_header(Elf64_Ehdr *header)
 {
+	int i;
+
 	printf("  Magic:   ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 		printf("%02x ", header->e_ident[i]);
 	printf("\n");
 
@@ -178,26 +179,6 @@ void print_elf_header(Elf64_Ehdr *header)
 
 
 /**
- * print_extended_header - A function that prints more infon about elf files.
- *
- * @header: Elf64_Ehdr
- * Return: void
- */
-void print_extended_header(Elf64_Ehdr *header)
-{
-	printf("Start of program headers: %ld\n", header->e_phoff);
-	printf("Start of section headers: %ld\n", header->e_shoff);
-	printf("Flags: %d\n", header->e_flags);
-	printf("Size of this header: %d\n", header->e_ehsize);
-	printf("Size of program headers: %d\n", header->e_phentsize);
-	printf("Number of program headers: %d\n", header->e_phnum);
-	printf("Size of section headers: %d\n", header->e_shentsize);
-	printf("Number of section headers: %d\n", header->e_shnum);
-	printf("Section header string table index: %d\n", header->e_shstrndx);
-}
-
-
-/**
  * main - A fuction that is the starting point of the program
  *
  * @argc: int
@@ -206,14 +187,17 @@ void print_extended_header(Elf64_Ehdr *header)
  */
 int main(int argc, char **argv)
 {
+	char *filename;
+	int fd;
+	Elf64_Ehdr header;
 	if (argc < 2 || argc > 3 || (argc == 3 && strcmp(argv[1], "-h") != 0))
 	{
 		fprintf(stderr, "Usage: elf_header [-h] elf_filename\n");
 		return (98);
 	}
 
-	char *filename = argv[argc - 1];
-	int fd = open(filename, O_RDONLY);
+	filename = argv[argc - 1];
+	fd = open(filename, O_RDONLY);
 
 	if (fd == -1)
 	{
@@ -221,14 +205,11 @@ int main(int argc, char **argv)
 		return (98);
 	}
 
-	Elf64_Ehdr header;
-
 	if (read(fd, &header, sizeof(header)) != sizeof(header))
 	{
 		perror("Error reading ELF header");
 		return (98);
 	}
-
 	if (header.e_ident[EI_MAG0] != ELFMAG0 ||
 		header.e_ident[EI_MAG1] != ELFMAG1 ||
 		header.e_ident[EI_MAG2] != ELFMAG2 ||
@@ -239,9 +220,6 @@ int main(int argc, char **argv)
 	}
 	printf("ELF Header:\n");
 	print_elf_header(&header);
-	if (argc == 3)
-		print_extended_header(&header);
-
 	close(fd);
 	return (0);
 }
