@@ -11,7 +11,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new_node = NULL, *current_node;
+	hash_node_t *new_node = NULL;
 
 	if (!ht || !key || !value)
 		return (0);
@@ -38,10 +38,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	strcpy(new_node->value, value);
 
 	index = key_index((unsigned char *)key, ht->size);
-
-	current_node = ht->array[index];
-	while (!current_node)
-		current_node = current_node->next;
-	current_node = new_node;
+	if (ht->array[index] != NULL)
+	{
+		if (!strcmp(new_node->key, ht->array[index]->key))
+		{
+			printf("'%s' already exists\n", new_node->key);
+			return (0);
+		}
+		new_node->next = ht->array[index];
+		ht->array[index] = new_node;
+	}
+	ht->array[index] = new_node;
 	return (1);
 }
