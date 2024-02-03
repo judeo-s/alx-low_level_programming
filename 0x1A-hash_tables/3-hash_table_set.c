@@ -40,11 +40,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((unsigned char *)key, ht->size);
 	if (ht->array[index] != NULL)
 	{
-		if (!strcmp(new_node->key, ht->array[index]->key))
-		{
-			printf("'%s' already exists\n", new_node->key);
-			return (0);
-		}
 		new_node->next = ht->array[index];
 		ht->array[index] = new_node;
 	}
