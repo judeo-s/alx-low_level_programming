@@ -20,9 +20,9 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	temp = ht->array[index];
 
-	while(temp)
+	while (temp)
 	{
-		if(!strcmp(temp->key, key))
+		if (!strcmp(temp->key, key))
 			return (temp->value);
 		temp = temp->next;
 	}
