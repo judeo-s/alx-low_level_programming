@@ -12,7 +12,7 @@ void double_linked_insert(shash_table_t *hash_map, shash_node_t *node)
 {
 	shash_node_t *current = NULL;
 
-	if(!hash_map->shead)
+	if (!hash_map->shead)
 	{
 		hash_map->shead = node;
 		hash_map->stail = node;
@@ -40,7 +40,7 @@ void double_linked_insert(shash_table_t *hash_map, shash_node_t *node)
 	else
 		current->snext->sprev = node;
 	current->snext = node;
-}	
+}
 
 
 /**
@@ -86,7 +86,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	shash_node_t *new_node = NULL;;
+	shash_node_t *new_node = NULL;
 
 	if (!ht || !key || !value)
 		return (0);
@@ -209,7 +209,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 /**
  * shash_table_delete - deletes a hash table
- * 
+ *
  * @ht: shash_table_t *
  * Return: void
  */
